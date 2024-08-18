@@ -1,0 +1,79 @@
+
+/*
+  A stylesheet customizing app (custom renderers)
+*/
+
+table.htCore .star {
+  color: #fcb515;
+}
+
+table.htCore tr.odd td {
+  background: #fafbff;
+}
+
+table.htCore td .progressBar {
+  background: #37bc6c;
+  height: 10px;
+}
+
+table.htCore tr.selected td {
+  background: #edf3fd;
+}
+
+/*
+  A stylesheet customizing Handsontable style
+*/
+table {
+  font-size: 14px;
+}
+
+  .handsontable {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+  }
+  
+  .collapsibleIndicator {
+    text-align: center;
+  }
+  
+  .handsontable .htRight .changeType {
+    margin: 3px 1px 0 13px;
+  }
+  
+  .grand_total {
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .row_total {
+    font-style: italic;
+    border-right: 1px solid #000000 !important; 
+    border-left: 1px solid #000000 !important; 
+  }
+  .sub_total {
+    font-style: italic;
+    border-top: 1px solid #000000 !important; 
+    border-bottom: 1px solid #000000 !important; 
+}
+.htDimmed {
+    color: black !important;
+}
+.changed_cell {
+  position: relative;
+}
+.changed_cell::before,
+.changed_cell::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.changed_cell::after {
+    border-width: 6px;
+    border-right-color: #0c0;
+    border-top-color: #0c0;
+}
