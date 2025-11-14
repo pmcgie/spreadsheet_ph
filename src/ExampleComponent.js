@@ -68,14 +68,24 @@ const ExampleSpreadsheet = ({ triggerQuery, model, modelUpdate }) => {
             }
         }
     }
-    const afterChange = (changes, type) => {
-        if (type === 'loadData') {
-            return; //don't save this change
-        }
-        if (['edit','Autofill.fill','CopyPaste.cut','CopyPaste.paste'].indexOf(type) > -1) {
-            setAllChanges(prev=>[...prev,...changes])
-        }
-    }
+const afterChange = (changes, type) => {
+  if (type === 'loadData') return;
+
+  if (['edit', 'Autofill.fill', 'CopyPaste.cut', 'CopyPaste.paste'].includes(type)) {
+    setAllChanges(prev => {
+      const newMap = new Map();
+
+      // Keep previous values but keyed by row/col
+      prev.forEach(ch => newMap.set(`${ch[0]}-${ch[1]}`, ch));
+
+      // Insert new changes (overwrite older)
+      changes.forEach(ch => newMap.set(`${ch[0]}-${ch[1]}`, ch));
+
+      return Array.from(newMap.values());
+    });
+  }
+};
+
 
     const columnSummaryStyle = (row, col) => {
         if (!formatted_data) return {}
