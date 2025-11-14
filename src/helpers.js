@@ -71,7 +71,7 @@ export const changesToData = (array_data, changes, row_total = false) => {
 
     return {
       [id]: data_id,
-      [value]: Number(item.new_val),
+      [value]: item.new_val,
     };
   });
 };
